@@ -3,6 +3,7 @@
   <div class="card-body">
     <h4 class="card-title"> {{actor.name}} </h4>
     <p class="card-text"> {{actor.dob}} </p>
-    <a class="card-link" routerLink="{{actor.id}}">More info..</a>
+    <a class="card-link"
+       (click)="goToActorActressDetails()">More info..</a>
   </div>
 </div>
