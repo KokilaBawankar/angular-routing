@@ -1,0 +1,10 @@
+<div *ngIf="movie">
+  <div >
+    <img style="height: 200px" [src]="movie.posterUrl" alt="Movie poster.." >
+  </div>
+  <div>
+    <h4>{{movie.title}}</h4>
+    {{movie.time}}
+  </div>
+
+</div>

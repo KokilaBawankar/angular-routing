@@ -1,0 +1,8 @@
+<div class="row col-xs-12" style="margin-bottom: 50px">
+  <router-outlet></router-outlet>
+</div>
+<h2 class="row" style="margin-bottom: 10px">Hollywood Actor/Actress</h2>
+<div class="row">
+  <app-actor-actress-card *ngFor="let actor of actorActress" [actor]="actor"></app-actor-actress-card>
+</div>
+

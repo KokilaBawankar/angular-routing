@@ -1,0 +1,8 @@
+<div class="card bg-light text-dark" style="width: 250px; margin: 0px 20px 20px 0px">
+  <img class="card-img-top" [src]="movie.posterUrl">
+  <div class="card-body">
+    <h4 class="card-title"> {{movie.title}} </h4>
+    <p class="card-text"> {{movie.year}} </p>
+    <a class="card-link" routerLink="{{movie.id}}">More info..</a>
+  </div>
+</div>

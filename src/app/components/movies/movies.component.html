@@ -1,0 +1,10 @@
+<div class="row col-xs-12" style="margin-bottom: 50px">
+  <router-outlet></router-outlet>
+</div>
+<div class="row" style="margin-bottom: 10px">
+  <h2>Upcoming Movies</h2>
+</div>
+<div class="row">
+    <app-movie-card class="col-4" *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
+</div>
+
