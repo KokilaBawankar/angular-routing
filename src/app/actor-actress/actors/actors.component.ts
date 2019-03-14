@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActorActressService} from '../../providers/actor-actress.service';
+import {ActorActressService} from '../actor-actress.service';
 
 @Component({
   selector: 'app-actors',

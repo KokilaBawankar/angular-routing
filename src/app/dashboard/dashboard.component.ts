@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MoviesService} from '../../providers/movies.service';
-import {ActorActressService} from '../../providers/actor-actress.service';
+import {MoviesService} from '../movies/movies.service';
+import {ActorActressService} from '../actor-actress/actor-actress.service';
 
 @Component({
   selector: 'app-dashboard',

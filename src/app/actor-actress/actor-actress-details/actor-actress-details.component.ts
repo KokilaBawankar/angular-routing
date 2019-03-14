@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
-import {ActorActressService} from '../../providers/actor-actress.service';
+import {ActorActressService} from '../actor-actress.service';
 
 @Component({
   selector: 'app-actor-actress-details',

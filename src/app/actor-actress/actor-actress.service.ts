@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ACTOR_ACTRESS} from '../mock-actors-actress';
+import {ACTOR_ACTRESS} from './mock-actors-actress';
 import {of} from 'rxjs';
 
 @Injectable({

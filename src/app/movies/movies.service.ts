@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {MOVIES} from '../mock-movies';
+import {MOVIES} from './mock-movies';
 import { of } from 'rxjs';
 
 @Injectable({

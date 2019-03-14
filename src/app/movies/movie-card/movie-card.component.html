@@ -4,7 +4,7 @@
     <h4 class="card-title"> {{movie.title}} </h4>
     <p class="card-text"> {{movie.year}} </p>
     <a class="card-link"
-       [routerLink]="movie.id"
+       [routerLink]="['/movies', movie.id]"
        routerLinkActive="active"
        [routerLinkActiveOptions]="{exact: true}">More info..</a>
   </div>
