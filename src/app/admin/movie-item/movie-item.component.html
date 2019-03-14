@@ -1,0 +1,17 @@
+<a
+  [routerLink]="[movie.id]"
+  routerLinkActive="active"
+  [routerLinkActiveOptions]="{exact: true}"
+  class="list-group-item clearfix">
+  <div class="float-left">
+    <h4>{{movie.title}}</h4>
+    <p>{{movie.releaseDate}}</p>
+  </div>
+  <span class="float-right">
+    <img
+      [src]="movie.posterUrl"
+      alt = "movie.title"
+      class="img-thumbnail"
+      style="height: 70px; width: 70px; border-radius: 50%;  border: none">
+  </span>
+</a>

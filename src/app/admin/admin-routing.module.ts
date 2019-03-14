@@ -4,6 +4,8 @@ import {AdminHomeComponent} from './admin-home/admin-home.component';
 import {ManageMoviesComponent} from './manage-movies/manage-movies.component';
 import {ManageActorActressComponent} from './manage-actor-actress/manage-actor-actress.component';
 import {CanActivateGuard} from '../guards/can-activate.guard';
+import {MovieEditComponent} from './movie-edit/movie-edit.component';
+import {ResolveGuard} from '../guards/resolve.guard';
 
 const adminRoutes: Routes = [
   { path: 'admin',
@@ -12,7 +14,11 @@ const adminRoutes: Routes = [
     children: [
       { path: '',
         children: [
-          {path: 'manage-movies', component: ManageMoviesComponent},
+          { path: 'manage-movies',
+            component: ManageMoviesComponent,
+            children: [
+              {path: ':id', component: MovieEditComponent, resolve: {movie: ResolveGuard} }
+            ]},
           {path: 'manage-actor-actress', component: ManageActorActressComponent}
         ]}
     ]}

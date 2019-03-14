@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   onLogin() {
     this.authService.login()
       .subscribe(() => {
-        let redirectUrl = this.authService.redirectUrl ? this.authService.redirectUrl : '/admin';
+        let redirectUrl = this.authService.redirectUrl ? this.authService.redirectUrl : '/admin/manage-movies';
         this.router.navigate([redirectUrl]);
       });
   }

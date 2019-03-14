@@ -26,4 +26,12 @@ export class MoviesService {
         delay(3000)
       );
   }
+
+  editMovie(movie) {
+    this.movies.filter((item, index) => {
+      if (item.id === movie.id) {
+        this.movies[index] = movie;
+      }
+    });
+  }
 }

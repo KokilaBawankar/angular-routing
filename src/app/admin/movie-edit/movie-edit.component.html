@@ -1,0 +1,23 @@
+<div class="col-xl-12"
+     *ngIf="movie">
+  Title <input type="text" style="margin: 10px" [(ngModel)]="movie.title"> <br>
+  Year <input type="text" style="margin: 10px" [(ngModel)]="movie.year"><br>
+  Geners <input type="text" style="margin: 10px" [(ngModel)]="movie.geners"><br>
+  Cast <input type="text" style="margin: 10px" [(ngModel)]="movie.cast"><br>
+  Time <input type="text" style="margin: 10px" [(ngModel)]="movie.time"><br>
+  Description <textarea style="margin: 10px" [(ngModel)]="movie.shortStory"></textarea><br>
+  Release Date <input type="text" style="margin: 10px" [(ngModel)]="movie.releaseDate"><br>
+  <img class="img-thumbnail"
+       style="width: 150px; height: 200px; margin: 10px"
+       [src]="movie.posterUrl"
+       alt="Movie poster..">
+  <button class="btn btn-success"
+          style="margin: 10px"
+          (click)="onSave()">Save
+  </button>
+  <button class="btn btn-info"
+          style="margin: 10px"
+          (click)="onCancel()">Cancel
+  </button>
+
+</div>
