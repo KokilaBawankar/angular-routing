@@ -1,0 +1,12 @@
+<h3>This is Admin</h3>
+
+<button class="btn btn-primary"
+        style="margin-right: 20px"
+        [routerLink]="['manage-movies']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">Manage Movies</button>
+<button class="btn btn-info"
+        [routerLink]="['manage-actor-actress']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">Manage Actor/Actress</button>
+<router-outlet></router-outlet>

@@ -10,6 +10,7 @@ import { ActorActressModule} from './actor-actress/actor-actress.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PopupComponent } from './popup/popup.component';
 import {AuthModule} from './auth/auth.module';
+import {AdminModule} from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,10 @@ import {AuthModule} from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
-    AuthModule,
     MoviesModule,
     ActorActressModule,
+    AuthModule,
+    AdminModule,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]

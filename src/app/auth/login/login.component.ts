@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  username;
+  password;
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
   }
 
+  onLogin() {
+    this.authService.login()
+      .subscribe(() => {
+        let redirectUrl = this.authService.redirectUrl ? this.authService.redirectUrl : '/admin';
+        this.router.navigate([redirectUrl]);
+      });
+  }
+
+  onClear() {
+    this.username = '';
+    this.password = '';
+  }
+
+  onLogout() {
+    this.authService.logout();
+  }
 }
