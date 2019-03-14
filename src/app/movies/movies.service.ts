@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {MOVIES} from './mock-movies';
 import { of } from 'rxjs';
+import {delay} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,12 @@ export class MoviesService {
   }
   getMovieById(id: number) {
     return of(this.movies.find(movie => movie.id === id));
+  }
+
+  getMovieByIdToManage(id: number) {
+    return of(this.movies.find(movie => movie.id === id))
+      .pipe(
+        delay(3000)
+      );
   }
 }
