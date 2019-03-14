@@ -17,7 +17,7 @@ const adminRoutes: Routes = [
           { path: 'manage-movies',
             component: ManageMoviesComponent,
             children: [
-              {path: ':id', component: MovieEditComponent, resolve: {movie: ResolveGuard} }
+              {path: ':id', component: MovieEditComponent, resolve: {movie: ResolveGuard}, canDeactivate: [CanActivateGuard] }
             ]},
           {path: 'manage-actor-actress', component: ManageActorActressComponent}
         ]}
