@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {PopupComponent} from './popup/popup.component';
 
 const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'named-outlet', component: PopupComponent, outlet: 'popup'},
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];

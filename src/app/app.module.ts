@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {MoviesModule} from './movies/movies.module';
 import {ActorActressModule} from './actor-actress/actor-actress.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HeaderComponent,
     DashboardComponent,
     PageNotFoundComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
