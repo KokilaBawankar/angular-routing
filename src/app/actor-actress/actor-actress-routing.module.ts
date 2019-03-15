@@ -4,7 +4,7 @@ import {ActorsComponent} from './actors/actors.component';
 import {ActorActressDetailsComponent} from './actor-actress-details/actor-actress-details.component';
 
 const actorActressRoutes: Routes = [
-  {path: 'actors', component: ActorsComponent, children: [
+  {path: '', component: ActorsComponent, children: [
       {path: ':id', component: ActorActressDetailsComponent}
     ]},
 ]
