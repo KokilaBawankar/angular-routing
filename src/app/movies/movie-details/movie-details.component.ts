@@ -20,6 +20,7 @@ export class MovieDetailsComponent implements OnInit {
         this.id = params.params['id'];
         this.moviesService.getMovieById(+this.id)
           .subscribe(movie => this.movie = movie);
+        window.scroll(0, 0);
       });
   }
 

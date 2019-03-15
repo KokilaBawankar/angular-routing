@@ -20,6 +20,7 @@ export class ActorActressDetailsComponent implements OnInit {
         this.id = params.params['id'];
         this.actorActressService.getActorActressById(+this.id)
           .subscribe(actor => this.actor = actor);
+        window.scroll(0, 0);
       });
   }
 
