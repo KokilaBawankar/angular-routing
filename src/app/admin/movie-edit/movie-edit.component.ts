@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, ParamMap, Params, Router} from '@angular/router';
 import {MoviesService} from '../../movies/movies.service';
 import {ConfirmDialogueService} from '../confirm-dialogue.service';
 import {Observable} from 'rxjs';
@@ -15,6 +15,8 @@ export class MovieEditComponent implements OnInit {
   movie;
   changesSaved = false;
   confirmDialogRepeatingFlag = false;
+  allowEdit;
+  fragment;
   constructor(private activatedRoute: ActivatedRoute,
               private movieService: MoviesService,
               private router: Router,
@@ -24,6 +26,13 @@ export class MovieEditComponent implements OnInit {
     this.activatedRoute.data.subscribe(movie => {
       this.movie = JSON.parse(JSON.stringify(movie.movie));
       this.originalMovies = JSON.parse(JSON.stringify(movie.movie));
+    });
+
+    this.activatedRoute.queryParamMap.subscribe((params: ParamMap) => {
+      this.allowEdit = params.get('allowEdit');
+    });
+    this.activatedRoute.fragment.subscribe((value: string) => {
+      this.fragment = value;
     });
   }
 
