@@ -10,22 +10,26 @@
     <li class="nav-item">
       <a class="nav-link"
          [routerLink]="['movies']"
-         routerLinkActive="active"> Movies </a>
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}"> Movies </a>
     </li>
     <li class="nav-item">
       <a class="nav-link"
          [routerLink]="['actors']"
-         routerLinkActive="active"> Actors/Actress </a>
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}"> Actors/Actress </a>
     </li>
     <li class="nav-item">
       <a class="nav-link"
          [routerLink]="['login']"
-         routerLinkActive="active"> Login </a>
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}"> Login </a>
     </li>
     <li class="nav-item">
       <a class="nav-link"
          [routerLink]="['admin', 'manage-movies']"
-         routerLinkActive="active"> Admin </a>
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}"> Admin </a>
     </li>
     <li class="nav-item">
       <a class="nav-link"

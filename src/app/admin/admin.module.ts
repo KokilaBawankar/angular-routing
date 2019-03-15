@@ -7,6 +7,8 @@ import {AdminRoutingModule} from './admin-routing.module';
 import { MovieItemComponent } from './movie-item/movie-item.component';
 import { MovieEditComponent } from './movie-edit/movie-edit.component';
 import {FormsModule} from '@angular/forms';
+import { ActorActressItemComponent } from './actor-actress-item/actor-actress-item.component';
+import {AddDynamicActorActressDirective} from './add-dynamic-actor-actress.directive';
 
 @NgModule({
   imports: [
@@ -19,7 +21,12 @@ import {FormsModule} from '@angular/forms';
     ManageMoviesComponent,
     ManageActorActressComponent,
     MovieItemComponent,
-    MovieEditComponent
+    MovieEditComponent,
+    ActorActressItemComponent,
+    AddDynamicActorActressDirective
+  ],
+  entryComponents: [
+    ActorActressItemComponent
   ]
 
 })
