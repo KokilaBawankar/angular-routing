@@ -13,10 +13,12 @@ export class MovieEditComponent implements OnInit {
 
   originalMovies;
   movie;
+  changesSaved = false;
+  confirmDialogRepeatingFlag = false;
   constructor(private activatedRoute: ActivatedRoute,
               private movieService: MoviesService,
               private router: Router,
-              private confirmDialogueService: ConfirmDialogueService) { }
+              private confirmDialogueService: ConfirmDialogueService,) { }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe(movie => {
@@ -27,26 +29,45 @@ export class MovieEditComponent implements OnInit {
 
   onSave() {
     this.movieService.editMovie(this.movie);
+    this.changesSaved = true;
     this.onCancel();
   }
   onCancel() {
     this.router.navigate(['admin', 'manage-movies']);
   }
 
-  canDeactivate(): Observable<boolean> | boolean {
-    if (this.originalMovies !== this.movie) {
-      this.confirmDialogueService.confirm('Discard changes?')
-        .subscribe(data => {
-          if (data) {
-            this.onCancel();
-            return true;
-          } else {
-            return false;
-          }
-        });
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    if (!this.isEquivalent(this.originalMovies, this.movie ) && !this.changesSaved && !this.confirmDialogRepeatingFlag) {
+      this.confirmDialogRepeatingFlag = true;
+      return this.confirmDialogueService.confirm('Discard changes?');
     } else {
-      this.onCancel();
       return true;
     }
+  }
+
+  isEquivalent(a, b) {
+    // Create arrays of property names
+    let aProps = Object.getOwnPropertyNames(a);
+    let bProps = Object.getOwnPropertyNames(b);
+
+    // If number of properties is different,
+    // objects are not equivalent
+    if (aProps.length !== bProps.length) {
+      return false;
+    }
+
+    for (let i = 0; i < aProps.length; i++) {
+      let propName = aProps[i];
+
+      // If values of same property are not equal,
+      // objects are not equivalent
+      if (JSON.stringify(a[propName]) !== JSON.stringify(b[propName])) {
+        return false;
+      }
+    }
+
+    // If we made it this far, objects
+    // are considered equivalent
+    return true;
   }
 }
