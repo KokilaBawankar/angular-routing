@@ -1,29 +1,13 @@
-<div *ngIf="!authService.isLoggedIn">
-  <h3 style="margin: 0px 0px 20px 60px">Login</h3>
-  <div class="col-xl-6">
-    Username <input type="text" [(ngModel)]="username">
-  </div>
-
-  <div class="col-xl-6" style="margin: 20px 0px;">
-    Password <input type="password" [(ngModel)]="password">
-  </div>
-
-  <div class="col-xl-6">
-    <button class="btn btn-primary"
-            style="margin: 0px 20px 0px 0px"
-            (click)="onLogin()">Login</button>
-    <button class="btn btn-success"
-            (click)="onClear()">Clear</button>
-  </div>
+<div class="box" *ngIf="!authService.isLoggedIn">
+  <h3>Login</h3>
+  <input type="text" [(ngModel)]="username" placeholder="Username">
+  <input type="password" [(ngModel)]="password" placeholder="Password">
+  <input type="submit" role="button" (click)="onLogin()" value="Login">
+  <input type="submit" role="button" (click)="onClear()" value="Clear">
   <span style="font-size: 11px; color: orange">Please login to go to admin section</span>
 </div>
-
-<div *ngIf="authService.isLoggedIn"
-     class="text-center">
-  <button
-    class="btn btn-primary"
-    (click)="onLogout()">Logout
-  </button>
+<div class="box1">
+  <input type="submit" role="button" *ngIf="authService.isLoggedIn" (click)="onLogout()" value="Logout">
 </div>
 
 

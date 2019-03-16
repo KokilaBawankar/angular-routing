@@ -1,0 +1,63 @@
+/*:host{*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+/*}*/
+.box, .box1{
+  background-color: #105763;
+  font-family: sans-serif;
+  padding: 50px;
+  text-align: -webkit-center;
+}
+
+.box h3{
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.box h3:hover{
+  color: greenyellow;
+  font-size: 50px;
+  text-transform: lowercase;
+}
+
+.box input[type = 'text'], .box input[type = 'password']{
+  background: none;
+  border: 0;
+  border: 2px solid #0d7e90;
+  border-radius: 25px;
+  color: white;
+  display: -webkit-box;
+  margin: 20px;
+  padding: 14px 10px;
+  text-align: center;
+  outline: none;
+  width: 200px;
+}
+
+.box input[type = 'text']:focus, .box input[type = 'password']:focus{
+  border-color: greenyellow;
+  width: 300px;
+}
+
+.box input[type = 'submit'], input[type = 'submit'] {
+  background: none;
+  border: 2px solid #0d7e90;
+  border-radius: 25px;
+  color: white;
+  padding: 13px 10px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.box input[type = 'submit']:hover, input[type = 'submit']:hover{
+  background-color: greenyellow;
+  border-color: greenyellow;
+  color: black;
+}
+
+.box span{
+  padding: 30px 0px 0px 0px;
+  display: -webkit-box;
+}
+

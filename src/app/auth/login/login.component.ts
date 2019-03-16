@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  username = 'Usename';
+  username = 'Username';
   password = 'Password';
   constructor(private authService: AuthService,
               private router: Router) { }
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   onLogin() {
     this.authService.login()
       .subscribe(() => {
-        let redirectUrl = this.authService.redirectUrl ? this.authService.redirectUrl : '/admin/manage-movies';
+        const redirectUrl = this.authService.redirectUrl ? this.authService.redirectUrl : '/admin/manage-movies';
         this.router.navigate([redirectUrl]);
       });
   }
