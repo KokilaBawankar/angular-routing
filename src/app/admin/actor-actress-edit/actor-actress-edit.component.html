@@ -1,0 +1,71 @@
+<div *ngIf="actorActress" style="margin-top: 120px">
+  <form [formGroup]="form" (submit)="onSave()" class="was-validated">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" formControlName="name" id="name" class="form-control">
+      <div class="invalid-feedback" style="display: initial" *ngIf="form.get('name').invalid">This field is required</div>
+    </div>
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="text" formControlName="age" id="age" class="form-control">
+      <div class="invalid-feedback" style="display: initial" *ngIf="form.get('age').invalid">This field is required</div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea rows="3" formControlName="description" id="description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="dob">Birth Date</label>
+      <input type="text" formControlName="dob" id="dob" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="height">Height</label>
+      <input type="text" formControlName="height" id="height" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="spouse">Spouse</label>
+      <input type="text" formControlName="spouse" id="spouse" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="movies">Movies</label>
+      <input type="text" formControlName="movies" id="movies" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="children">Children</label>
+      <input type="text" formControlName="children" id="children" class="form-control">
+    </div>
+    <img class="img-thumbnail"
+         style="width: 150px; height: 200px; margin: 10px"
+         [src]="actorActress.imageUrl"
+         alt="Movie poster..">
+  </form>
+  <div class="row">
+    <button class="btn btn-success"
+            [disabled]="form.invalid"
+            type="submit"
+            style="width: 150px; margin: 10px">Save
+    </button>
+    <button class="btn btn-info"
+            type="button"
+            style="width: 150px; margin: 10px"
+            (click)="onCancel()">Cancel
+    </button>
+  </div>
+  <div class="row">
+    <button class="btn btn-outline-success"
+            type="button"
+            style="width: 150px; margin: 10px"
+            (click)="onSetValue()">Set Value
+    </button>
+    <button class="btn btn-outline-info"
+            type="button"
+            style="width: 150px; margin: 10px"
+            (click)="onPatchValue()">Patch Values
+    </button>
+    <button class="btn btn-outline-primary"
+            type="button"
+            style="width: 150px; margin: 10px"
+            (click)="onResetValue()">Reset Values
+    </button>
+  </div>
+</div>

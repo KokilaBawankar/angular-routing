@@ -1,10 +1,40 @@
-<div *ngIf="actor">
-  <div >
-    <img style="height: 200px" [src]="actor.imageUrl" alt="Movie poster.." >
+<div *ngIf="actor" class="col-xl-10" style="display: -webkit-box">
+  <div style="padding: 0px 30px 0px 0px">
+    <img style="height: 200px" [src]="actor.imageUrl" alt="Acotr image.." >
   </div>
-  <div>
-    <h4>{{actor.name}}</h4>
-    {{actor.height}}
+  <div class="table-responsive-lg">
+    <h4 class="text-primary">{{actor.name}}</h4>
+    <table class="table">
+      <tr>
+        <td class="text-primary">Age:</td>
+        <td>{{actor.age}}</td>
+      </tr>
+      <tr>
+        <td class="text-primary">Height:</td>
+        <td>{{actor.height}}</td>
+      </tr>
+      <tr>
+        <td class="text-primary">Spouse:</td>
+        <td>{{actor.spouse}}</td>
+      </tr>
+      <tr>
+        <td class="text-primary">Children:</td>
+        <td>{{actor.children}}</td>
+      </tr>
+      <tr>
+        <td class="text-primary">Movies:</td>
+        <td>{{actor.movies}}</td>
+      </tr>
+      <tr>
+        <td class="text-primary">Description:</td>
+        <td>{{actor.description}}</td>
+      </tr>
+      <tr>
+        <td class="text-primary">Birth Date:</td>
+        <td>{{actor.dob}}</td>
+      </tr>
+    </table>
+
   </div>
 
 </div>

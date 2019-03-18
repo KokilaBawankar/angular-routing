@@ -6,14 +6,16 @@ import {ManageActorActressComponent} from './manage-actor-actress/manage-actor-a
 import {AdminRoutingModule} from './admin-routing.module';
 import { MovieItemComponent } from './movie-item/movie-item.component';
 import { MovieEditComponent } from './movie-edit/movie-edit.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ActorActressItemComponent } from './actor-actress-item/actor-actress-item.component';
 import {AddDynamicActorActressDirective} from './add-dynamic-actor-actress.directive';
+import { ActorActressEditComponent } from './actor-actress-edit/actor-actress-edit.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     AdminRoutingModule
   ],
   declarations: [
@@ -23,7 +25,8 @@ import {AddDynamicActorActressDirective} from './add-dynamic-actor-actress.direc
     MovieItemComponent,
     MovieEditComponent,
     ActorActressItemComponent,
-    AddDynamicActorActressDirective
+    AddDynamicActorActressDirective,
+    ActorActressEditComponent
   ],
   entryComponents: [
     ActorActressItemComponent

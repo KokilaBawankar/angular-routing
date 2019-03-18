@@ -1,10 +1,36 @@
-<div *ngIf="movie">
-  <div >
+<div *ngIf="movie" class="col-xl-10" style="display: -webkit-box">
+  <div style="padding: 0px 30px 0px 0px">
     <img style="height: 200px" [src]="movie.posterUrl" alt="Movie poster.." >
   </div>
-  <div>
-    <h4>{{movie.title}}</h4>
-    {{movie.time}}
+  <div class="table-responsive-lg">
+    <h4 class="text-primary">{{movie.title}}</h4>
+    <table class="table">
+      <tr>
+        <td class="text-primary">Year:</td>
+        <td>{{movie.year}}</td>
+      </tr>
+      <tr>
+        <td class="text-primary">Geners:</td>
+        <td>{{movie.geners}}</td>
+      </tr>
+      <tr>
+        <td class="text-primary">Cast:</td>
+        <td>{{movie.cast}}</td>
+      </tr>
+      <tr>
+        <td class="text-primary">Time:</td>
+        <td>{{movie.time}}</td>
+      </tr>
+      <tr>
+        <td class="text-primary">Description:</td>
+        <td>{{movie.shortStory}}</td>
+      </tr>
+      <tr>
+        <td class="text-primary">Release Date:</td>
+        <td>{{movie.releaseDate}}</td>
+      </tr>
+    </table>
+
   </div>
 
 </div>

@@ -7,6 +7,7 @@ import {CanActivateGuard} from '../guards/can-activate.guard';
 import {MovieEditComponent} from './movie-edit/movie-edit.component';
 import {ResolveGuard} from '../guards/resolve.guard';
 import {CanDeactivateGuard} from '../guards/can-deactivate.guard';
+import {ActorActressEditComponent} from './actor-actress-edit/actor-actress-edit.component';
 
 const adminRoutes: Routes = [
   { path: 'admin',
@@ -20,7 +21,9 @@ const adminRoutes: Routes = [
             children: [
               {path: ':id', component: MovieEditComponent, resolve: {movie: ResolveGuard}, canDeactivate: [CanDeactivateGuard] }
             ]},
-          {path: 'manage-actor-actress', component: ManageActorActressComponent}
+          {path: 'manage-actor-actress', component: ManageActorActressComponent, children: [
+              {path: ':id', component: ActorActressEditComponent}
+            ]}
         ]}
     ]}
 ]

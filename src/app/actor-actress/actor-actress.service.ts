@@ -7,14 +7,22 @@ import {of} from 'rxjs';
 })
 export class ActorActressService {
 
-  actorActress;
+  actorActresses;
   constructor() {
-    this.actorActress = ACTOR_ACTRESS;
+    this.actorActresses = ACTOR_ACTRESS;
   }
   getActorActress() {
-    return of(this.actorActress);
+    return of(this.actorActresses);
   }
   getActorActressById(id: number) {
-    return of(this.actorActress.find(actor => actor.id === id));
+    return of(this.actorActresses.find(actor => actor.id === id));
+  }
+
+  editMovie(actorActress) {
+    this.actorActresses.filter((item, index) => {
+      if (item.id === actorActress.id) {
+        this.actorActresses[index] = actorActress;
+      }
+    });
   }
 }
