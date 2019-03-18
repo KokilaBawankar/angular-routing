@@ -7,7 +7,11 @@
   <span style="font-size: 11px; color: orange">Please login to go to admin section</span>
 </div>
 <div class="box1">
-  <input type="submit" role="button" *ngIf="authService.isLoggedIn" (click)="onLogout()" value="Logout">
+  <input type="submit"
+         role="button"
+         [disabled]="username == '' || password == ''"
+         *ngIf="authService.isLoggedIn"
+         (click)="onLogout()" value="Logout">
 </div>
 
 

@@ -7,6 +7,7 @@
   font-family: sans-serif;
   padding: 50px;
   text-align: -webkit-center;
+  height: 235px;
 }
 
 .box h3{
@@ -17,8 +18,6 @@
 
 .box h3:hover{
   color: greenyellow;
-  font-size: 50px;
-  text-transform: lowercase;
 }
 
 .box input[type = 'text'], .box input[type = 'password']{
