@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, ParamMap, Params, Router} from '@angular/router';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {MoviesService} from '../../movies/movies.service';
 import {ConfirmDialogueService} from '../confirm-dialogue.service';
 import {Observable} from 'rxjs';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-movie-edit',
@@ -17,6 +18,7 @@ export class MovieEditComponent implements OnInit {
   confirmDialogRepeatingFlag = false;
   allowEdit;
   fragment;
+  @ViewChild('form') movieForm: NgForm;
   constructor(private activatedRoute: ActivatedRoute,
               private movieService: MoviesService,
               private router: Router,
@@ -36,7 +38,7 @@ export class MovieEditComponent implements OnInit {
     });
   }
 
-  onSave() {
+  onSave(form: NgForm) {
     this.movieService.editMovie(this.movie);
     this.changesSaved = true;
     this.onCancel();
@@ -78,5 +80,18 @@ export class MovieEditComponent implements OnInit {
     // If we made it this far, objects
     // are considered equivalent
     return true;
+  }
+
+  onSetValue() {
+    const movie = this.originalMovies;
+    delete movie.id
+    delete movie.posterUrl;
+    this.movieForm.form.setValue(movie);
+  }
+  onPatchValue() {
+    this.movieForm.form.patchValue({title: this.originalMovies.title, year: this.originalMovies.year});
+  }
+  onResetValue() {
+    this.movieForm.form.reset();
   }
 }
