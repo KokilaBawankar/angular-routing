@@ -38,7 +38,10 @@ export class ActorActressEditComponent implements OnInit {
   }
 
   onSave(form: NgForm) {
-    this.actorActressService.editMovie(this.actorActress);
+    const actorActress = this.form.value;
+    actorActress['id'] = this.actorActress.id
+    actorActress['imageUrl'] = this.actorActress.imageUrl;
+    this.actorActressService.editMovie(actorActress);
     this.onCancel();
   }
   onCancel() {

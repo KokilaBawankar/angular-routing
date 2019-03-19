@@ -22,6 +22,7 @@ export class ActorActressService {
     this.actorActresses.filter((item, index) => {
       if (item.id === actorActress.id) {
         this.actorActresses[index] = actorActress;
+        return;
       }
     });
   }

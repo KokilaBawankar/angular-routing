@@ -1,5 +1,5 @@
 <div *ngIf="actorActress" style="margin-top: 120px">
-  <form [formGroup]="form" (submit)="onSave()" class="was-validated">
+  <form [formGroup]="form" (submit)="onSave(form)" class="was-validated">
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" formControlName="name" id="name" class="form-control">
@@ -38,34 +38,34 @@
          style="width: 150px; height: 200px; margin: 10px"
          [src]="actorActress.imageUrl"
          alt="Movie poster..">
+    <div class="row">
+      <button class="btn btn-success"
+              [disabled]="form.invalid"
+              type="submit"
+              style="width: 150px; margin: 10px">Save
+      </button>
+      <button class="btn btn-info"
+              type="button"
+              style="width: 150px; margin: 10px"
+              (click)="onCancel()">Cancel
+      </button>
+    </div>
+    <div class="row">
+      <button class="btn btn-outline-success"
+              type="button"
+              style="width: 150px; margin: 10px"
+              (click)="onSetValue()">Set Value
+      </button>
+      <button class="btn btn-outline-info"
+              type="button"
+              style="width: 150px; margin: 10px"
+              (click)="onPatchValue()">Patch Values
+      </button>
+      <button class="btn btn-outline-primary"
+              type="button"
+              style="width: 150px; margin: 10px"
+              (click)="onResetValue()">Reset Values
+      </button>
+    </div>
   </form>
-  <div class="row">
-    <button class="btn btn-success"
-            [disabled]="form.invalid"
-            type="submit"
-            style="width: 150px; margin: 10px">Save
-    </button>
-    <button class="btn btn-info"
-            type="button"
-            style="width: 150px; margin: 10px"
-            (click)="onCancel()">Cancel
-    </button>
-  </div>
-  <div class="row">
-    <button class="btn btn-outline-success"
-            type="button"
-            style="width: 150px; margin: 10px"
-            (click)="onSetValue()">Set Value
-    </button>
-    <button class="btn btn-outline-info"
-            type="button"
-            style="width: 150px; margin: 10px"
-            (click)="onPatchValue()">Patch Values
-    </button>
-    <button class="btn btn-outline-primary"
-            type="button"
-            style="width: 150px; margin: 10px"
-            (click)="onResetValue()">Reset Values
-    </button>
-  </div>
 </div>
