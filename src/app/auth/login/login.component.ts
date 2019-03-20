@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from '../auth.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {from} from 'rxjs';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   fromRoute: string;
+  @ViewChild('form') form: NgForm;
   constructor(public authService: AuthService,
               private router: Router,
               private activatedRoute: ActivatedRoute) { }
@@ -37,8 +39,8 @@ export class LoginComponent implements OnInit {
   }
 
   onClear() {
-    this.username = '';
-    this.password = '';
+    this.form.control.get('username').setValue('');
+    this.form.control.get('password').setValue('');
   }
 
   onLogout() {
