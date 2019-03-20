@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ACTOR_ACTRESS} from './mock-actors-actress';
-import {of} from 'rxjs';
+import {BehaviorSubject, of} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,26 @@ import {of} from 'rxjs';
 export class ActorActressService {
 
   actorActresses;
-  constructor() {
-    this.actorActresses = ACTOR_ACTRESS;
+  actorActressesBehaviorSubject: BehaviorSubject<any>;
+  url = 'https://practice-angular-2707b.firebaseio.com/actor-actress.json';
+
+  constructor(private httpClient: HttpClient) {
+    // this.actorActresses = ACTOR_ACTRESS;
+    this.actorActressesBehaviorSubject = new BehaviorSubject(this.actorActresses);
   }
-  getActorActress() {
-    return of(this.actorActresses);
+
+  fetchActorActress() {
+    this.httpClient.get(this.url)
+      .subscribe(actorActresses => {
+        this.actorActresses = actorActresses;
+        this.actorActressesBehaviorSubject.next(actorActresses);
+      });
   }
+
+  // getActorActress() {
+  //   return of(this.actorActresses);
+  // }
+
   getActorActressById(id: number) {
     return of(this.actorActresses.find(actor => actor.id === id));
   }
@@ -25,5 +40,7 @@ export class ActorActressService {
         return;
       }
     });
+    this.httpClient.put(this.url, this.actorActresses)
+      .subscribe(data => console.log(data));
   }
 }

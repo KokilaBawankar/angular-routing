@@ -12,7 +12,7 @@ export class ManageMoviesComponent implements OnInit {
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit() {
-    this.moviesService.getMovies()
+    this.moviesService.moviesBehaviorSubject
       .subscribe(movies => {
         this.movies = movies;
       });

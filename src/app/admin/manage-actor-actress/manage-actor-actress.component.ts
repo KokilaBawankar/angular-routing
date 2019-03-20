@@ -18,7 +18,7 @@ export class ManageActorActressComponent implements OnInit {
               private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
-    this.actorActressService.getActorActress()
+    this.actorActressService.actorActressesBehaviorSubject
       .subscribe(actorActress => {
         this.actorActresses = actorActress;
         this.loadComponent(this.actorActresses[0]);

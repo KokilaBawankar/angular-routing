@@ -12,7 +12,7 @@ export class ActorsComponent implements OnInit {
   constructor(private actorActressService: ActorActressService) { }
 
   ngOnInit() {
-    this.actorActressService.getActorActress()
+    this.actorActressService.actorActressesBehaviorSubject
       .subscribe(actors => {this.actorActress = actors; });
   }
 

@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PopupComponent } from './popup/popup.component';
 import {AuthModule} from './auth/auth.module';
 import {AdminModule} from './admin/admin.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {AdminModule} from './admin/admin.module';
     // ActorActressModule,
     AuthModule,
     AdminModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })
