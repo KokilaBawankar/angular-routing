@@ -39,6 +39,10 @@
     <input type="submit" [disabled]="form.invalid" role="button" value="Sign In">
     <input type="reset" [disabled]="form.value.username === '' && form.value.password === ''" role="button" (click)="onClear()" value="Clear">
   </form>
+  <div class="invalid-feedback"
+       style="display: initial;"
+       *ngIf="errorMsg != ''">{{errorMsg}}</div>
+
   <span style="font-size: 11px; color: orange">Please login to go to admin section</span>
 </div>
 
@@ -83,6 +87,10 @@
     <input type="submit" [disabled]="form.invalid" role="button" value="Register">
     <input type="reset" [disabled]="form.value.username === '' && form.value.password === ''" role="button" (click)="onClear()" value="Clear">
   </form>
+  <div class="invalid-feedback"
+       style="display: initial;"
+       *ngIf="errorMsg != ''">{{errorMsg}}</div>
+
   <span style="font-size: 11px; color: orange">Please register to go to admin section</span>
 </div>
 

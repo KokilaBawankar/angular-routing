@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   fromRoute: string;
+  errorMsg: string;
   @ViewChild('form') form: NgForm;
   constructor(public authService: AuthService,
               private router: Router,
@@ -31,11 +32,13 @@ export class LoginComponent implements OnInit {
   }
 
   onRegister(username, password) {
-    this.authService.register(username, password);
+    this.authService.register(username, password)
+      .catch(errorMsg => this.errorMsg = errorMsg );
   }
 
   onLogin(username, password) {
-    this.authService.login(username, password);
+    this.authService.login(username, password)
+      .catch(errorMsg => this.errorMsg = errorMsg );
   }
 
   onClear() {
