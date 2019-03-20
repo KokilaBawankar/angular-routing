@@ -25,9 +25,9 @@ export class ActorActressService {
       });
   }
 
-  // getActorActress() {
-  //   return of(this.actorActresses);
-  // }
+  getActorActress() {
+    return of(ACTOR_ACTRESS);
+  }
 
   getActorActressById(id: number) {
     return of(this.actorActresses.find(actor => actor.id === id));

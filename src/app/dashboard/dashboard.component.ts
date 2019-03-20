@@ -10,13 +10,11 @@ import {ActorActressService} from '../actor-actress/actor-actress.service';
 export class DashboardComponent implements OnInit {
 
   movies;
-  actorActress;
+  actorActresses;
   constructor(private moviesService: MoviesService,
               private actorActressService: ActorActressService) { }
 
   ngOnInit() {
-    this.moviesService.fetchMovies();
-    this.actorActressService.fetchActorActress();
     this.moviesService.moviesBehaviorSubject
       .subscribe(movies => {
         if (movies) {
@@ -24,11 +22,14 @@ export class DashboardComponent implements OnInit {
         }
       });
     this.actorActressService.actorActressesBehaviorSubject
-      .subscribe(actorActress => {
-        if (actorActress) {
-          this.actorActress = actorActress.slice(2, 7);
+      .subscribe(actorActresses => {
+        if (actorActresses) {
+          this.actorActresses = actorActresses.slice(2, 7);
         }
       });
+
+    this.moviesService.getMovies().subscribe(movies => this.movies = movies.slice(2, 7));
+    this.actorActressService.getActorActress().subscribe(actorActresses => this.actorActresses = actorActresses.slice(2, 7));
   }
 
 }

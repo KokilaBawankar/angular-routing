@@ -11,18 +11,6 @@
            routerLinkActive="active"
            [routerLinkActiveOptions]="{exact: true}"> Dashboard </a>
       </li>
-      <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
-        <a class="nav-link"
-           [routerLink]="['movies']"
-           routerLinkActive="active"
-           [routerLinkActiveOptions]="{exact: true}"> Movies </a>
-      </li>
-      <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
-        <a class="nav-link"
-           [routerLink]="['actors']"
-           routerLinkActive="active"
-           [routerLinkActiveOptions]="{exact: true}"> Actors/Actress </a>
-      </li>
       <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!authService.isLoggedIn">
         <a class="nav-link"
            [routerLink]="['login']"
@@ -35,18 +23,32 @@
            routerLinkActive="active"
            [routerLinkActiveOptions]="{exact: true}"> Register </a>
       </li>
-      <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="authService.isLoggedIn">
-        <a class="nav-link"
-           [routerLink]="['logout']"
-           routerLinkActive="active"
-           [routerLinkActiveOptions]="{exact: true}"> Logout </a>
-      </li>
       <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
         <a class="nav-link"
            [routerLink]="['admin', 'manage-movies']"
            routerLinkActive="active"
            [routerLinkActiveOptions]="{exact: true}"> Admin </a>
       </li>
+      <ng-template  *ngIf="authService.isLoggedIn">
+        <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link"
+             [routerLink]="['movies']"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: true}"> Movies </a>
+        </li>
+        <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link"
+             [routerLink]="['actors']"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: true}"> Actors/Actress </a>
+        </li>
+        <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
+          <a class="nav-link"
+             [routerLink]="['logout']"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: true}"> Logout </a>
+        </li>
+      </ng-template>
       <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
         <a class="nav-link"
            [routerLink]="[{ outlets: { popup: ['named-outlet'] } }]"

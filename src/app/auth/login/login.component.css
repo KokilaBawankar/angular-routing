@@ -69,6 +69,15 @@
   color: #adb5bd;
 }
 
+.box input[type = 'submit']:disabled:hover,
+.box input[type = 'reset']:disabled:hover,
+.box1 input[type = 'submit']:disabled:hover,
+.box1 input[type = 'reset']:disabled:hover{
+  background: none;
+  border: 2px solid #0d7e90;
+  color: #adb5bd;
+}
+
 
 .box span{
   padding: 30px 0px 0px 0px;

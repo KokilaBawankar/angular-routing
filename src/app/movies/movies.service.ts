@@ -27,7 +27,7 @@ export class MoviesService {
   }
 
   getMovies() {
-    return of(this.movies);
+    return of(MOVIES);
   }
   getMovieById(id: number) {
     return of(this.movies.find(movie => movie.id === id));
