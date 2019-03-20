@@ -11,12 +11,15 @@ export class AuthService {
 
   isLoggedIn = false;
   redirectUrl: string;
-
+  token: string;
   constructor(private router: Router) { }
 
   register(username: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(username, password)
       .then(success => {
+        firebase.auth().currentUser.getIdToken()
+          .then((token: string) => this.token = token)
+          .catch(error => console.log(error));
         this.isLoggedIn = true;
         this.router.navigate(['/admin', 'manage-movies']);
       })
@@ -28,6 +31,9 @@ export class AuthService {
   login(username: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(username, password)
       .then(success => {
+        firebase.auth().currentUser.getIdToken()
+          .then((token: string) => this.token = token)
+          .catch(error => console.log(error));
         this.isLoggedIn = true;
         this.router.navigate(['/admin', 'manage-movies']);
       })
@@ -47,5 +53,10 @@ export class AuthService {
       });
   }
 
-
+  getToken(): string {
+    firebase.auth().currentUser.getIdToken()
+      .then((token: string) => this.token = token)
+      .catch(error => console.log(error));
+    return this.token;
+  }
 }
