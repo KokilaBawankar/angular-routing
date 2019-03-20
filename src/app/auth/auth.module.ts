@@ -7,8 +7,8 @@ import {FormsModule} from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    FormsModule
   ],
   declarations: [
     LoginComponent

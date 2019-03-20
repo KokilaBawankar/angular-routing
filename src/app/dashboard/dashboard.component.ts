@@ -11,11 +11,13 @@ export class DashboardComponent implements OnInit {
 
   movies;
   actorActress;
-  constructor(private moviesServie: MoviesService,
+  constructor(private moviesService: MoviesService,
               private actorActressService: ActorActressService) { }
 
   ngOnInit() {
-    this.moviesServie.moviesBehaviorSubject
+    this.moviesService.fetchMovies();
+    this.actorActressService.fetchActorActress();
+    this.moviesService.moviesBehaviorSubject
       .subscribe(movies => {
         if (movies) {
           this.movies = movies.slice(2, 7);

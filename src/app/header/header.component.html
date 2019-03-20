@@ -3,7 +3,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+  <div class="collapse navbar-collapse" id="collapsibleNavbar" style="justify-content: flex-end">
     <ul class="navbar-nav">
       <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
         <a class="nav-link"
@@ -23,11 +23,23 @@
            routerLinkActive="active"
            [routerLinkActiveOptions]="{exact: true}"> Actors/Actress </a>
       </li>
-      <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
+      <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!authService.isLoggedIn">
         <a class="nav-link"
            [routerLink]="['login']"
            routerLinkActive="active"
            [routerLinkActiveOptions]="{exact: true}"> Login </a>
+      </li>
+      <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!authService.isLoggedIn">
+        <a class="nav-link"
+           [routerLink]="['register']"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}"> Register </a>
+      </li>
+      <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="authService.isLoggedIn">
+        <a class="nav-link"
+           [routerLink]="['logout']"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}"> Logout </a>
       </li>
       <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show">
         <a class="nav-link"

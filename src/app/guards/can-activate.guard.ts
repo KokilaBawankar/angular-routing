@@ -28,7 +28,7 @@ export class CanActivateGuard implements CanActivate, CanActivateChild {
       return true;
     }
     this.authService.redirectUrl = redirectUrl;
-    this.router.navigate(['login']);
+    this.router.navigate(['login'], {queryParams: {'fromRoute': 'login'}});
     return false;
   }
 }

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MoviesService} from './movies/movies.service';
-import {ActorActressService} from './actor-actress/actor-actress.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +8,12 @@ import {ActorActressService} from './actor-actress/actor-actress.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private moviesService: MoviesService,
-              private actorActressService: ActorActressService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.moviesService.fetchMovies();
-    this.actorActressService.fetchActorActress();
+    firebase.initializeApp({
+      apiKey: 'AIzaSyD7dR1znVa4kkTP3YwebH02-SY9i0xZuUQ',
+      authDomain: 'practice-angular-2707b.firebaseapp.com'
+    });
   }
 }

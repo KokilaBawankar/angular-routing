@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {from} from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -9,20 +10,30 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  username = 'Username';
-  password = 'Password';
+  username: string;
+  password: string;
+  fromRoute: string;
   constructor(public authService: AuthService,
-              private router: Router) { }
+              private router: Router,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.data.subscribe(data => {
+      this.fromRoute = data.fromRoute;
+    });
+    this.activatedRoute.queryParamMap.subscribe((params: ParamMap) => {
+      if (params.get('fromRoute')) {
+        this.fromRoute = 'login';
+      }
+    });
   }
 
-  onLogin() {
-    this.authService.login()
-      .subscribe(() => {
-        const redirectUrl = this.authService.redirectUrl ? this.authService.redirectUrl : '/admin/manage-movies';
-        this.router.navigate([redirectUrl]);
-      });
+  onRegister(username, password) {
+    this.authService.register(username, password);
+  }
+
+  onLogin(username, password) {
+    this.authService.login(username, password);
   }
 
   onClear() {

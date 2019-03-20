@@ -15,8 +15,8 @@
       <label for="year">Year</label>
       <input type="text" ngModel #year="ngModel" class="form-control" id="year" name="year" [(ngModel)]="movie.year"
              required maxlength="4" minlength="4">
-      <div class="invalid-feedback" *ngIf="year.control.errors && year.control.errors['required']">This field is
-        required
+      <div class="invalid-feedback" *ngIf="year.control.errors && year.control.errors['required']">
+        This field is required
       </div>
       <div class="invalid-feedback"
            *ngIf="year.control.errors && (year.control.errors['minlength'] || year.control.errors['maxlength'])">Please

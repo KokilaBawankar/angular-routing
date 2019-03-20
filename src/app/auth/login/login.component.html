@@ -1,16 +1,94 @@
-<div class="box" *ngIf="!authService.isLoggedIn">
-  <h3>Login</h3>
-  <input type="text" [(ngModel)]="username" placeholder="Username">
-  <input type="password" [(ngModel)]="password" placeholder="Password">
-  <input type="submit" role="button" (click)="onLogin()" value="Login">
-  <input type="submit" role="button" (click)="onClear()" value="Clear">
+<div class="box" *ngIf="fromRoute === 'login'">
+  <form #form="ngForm" (ngSubmit)="onLogin(form.value.username, form.value.password)">
+    <h3>Login</h3>
+    <input type="text"
+           name="username"
+           id="username"
+           ngModel
+           #username="ngModel"
+           placeholder="Username"
+           required
+           email>
+    <div class="invalid-feedback"
+         style="display: initial"
+         *ngIf="username.control.touched && username.control.errors && username.control.errors['required']">
+      This field is required.</div>
+    <div class="invalid-feedback"
+         style="display: initial"
+         *ngIf="username.control.touched && username.control.errors && username.control.errors['email']">
+         Please enter valid email.</div>
+
+    <input type="password"
+           name="password"
+           id="password"
+           ngModel
+           #password="ngModel"
+           placeholder="Password"
+           required
+           minlength="6">
+    <div class="invalid-feedback"
+         style="display: initial"
+         *ngIf="password.control.touched && password.control.errors && password.control.errors['required']">
+         This field is required.</div>
+    <div class="invalid-feedback"
+         style="display: initial"
+         *ngIf="password.control.touched && password.control.errors && password.control.errors['minlength']">
+         Password must contain at least 6 characters.</div>
+<br>
+
+    <input type="submit" [disabled]="form.invalid" role="button" value="Sign In">
+    <input type="reset" [disabled]="form.value.username === '' && form.value.password === ''" role="button" (click)="onClear()" value="Clear">
+  </form>
   <span style="font-size: 11px; color: orange">Please login to go to admin section</span>
 </div>
-<div class="box1">
+
+<div class="box" *ngIf="fromRoute === 'register'">
+  <form #form="ngForm" (ngSubmit)="onRegister(form.value.username, form.value.password)">
+    <h3>Register</h3>
+    <input type="text"
+           name="username"
+           id="usern"
+           ngModel
+           #username="ngModel"
+           placeholder="Username"
+           required
+           email>
+    <div class="invalid-feedback"
+         style="display: initial"
+         *ngIf="username.control.touched && username.control.errors && username.control.errors['required']">
+      This field is required.</div>
+    <div class="invalid-feedback"
+         style="display: initial"
+         *ngIf="username.control.touched && username.control.errors && username.control.errors['email']">
+      Please enter valid email.</div>
+
+    <input type="password"
+           name="password"
+           id="pswd"
+           ngModel
+           #password="ngModel"
+           placeholder="Password"
+           required
+           minlength="6">
+    <div class="invalid-feedback"
+         style="display: initial"
+         *ngIf="password.control.touched && password.control.errors && password.control.errors['required']">
+      This field is required.</div>
+    <div class="invalid-feedback"
+         style="display: initial"
+         *ngIf="password.control.touched && password.control.errors && password.control.errors['minlength']">
+      Password must contain at least 6 characters.</div>
+    <br>
+
+    <input type="submit" [disabled]="form.invalid" role="button" value="Register">
+    <input type="reset" [disabled]="form.value.username === '' && form.value.password === ''" role="button" (click)="onClear()" value="Clear">
+  </form>
+  <span style="font-size: 11px; color: orange">Please register to go to admin section</span>
+</div>
+
+<div class="box1" *ngIf="fromRoute === 'logout'">
   <input type="submit"
          role="button"
-         [disabled]="username == '' || password == ''"
-         *ngIf="authService.isLoggedIn"
          (click)="onLogout()" value="Logout">
 </div>
 
