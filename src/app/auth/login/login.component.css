@@ -20,6 +20,10 @@
   color: greenyellow;
 }
 
+.box a:hover {
+  color: white;
+}
+
 .box input[type = 'text'], .box input[type = 'password']{
   background: none;
   border: 0;
