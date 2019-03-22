@@ -23,7 +23,7 @@ import {HttpInterceptorService} from './http-interceptor.service';
     PopupComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'my-app'}),
     // MoviesModule,   for lazy loading remove these module from import
     // ActorActressModule,
     AuthModule,
